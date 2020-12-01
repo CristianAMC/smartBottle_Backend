@@ -1,8 +1,7 @@
+import UserController from '../controllers/UserController'; 
 const routes = require('express').Router()
-const UserController =require('../controllers/UserController')
-
 const userController = new UserController();
-/*
+
 routes.post('/create', (req, res) => {
     userController.register(req)
         .then( data=> { //Recoge la promesa resolve (se cumplio promesa)
@@ -20,7 +19,7 @@ routes.post('/login', (req, res )=> {
         .json({error: null})      
     })
     .catch(error => res.status(error[0]).send(error[1]))
-})*/
+})
 
 
 module.exports = routes;

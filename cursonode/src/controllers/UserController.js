@@ -4,7 +4,7 @@ const Joi = require('@hapi/joi')
 const jwt = require('jsonwebtoken')
 class UserController{
 
-    register = (req)=> {
+    register(req) {
         return new Promise(async(resolve, reject)=> { //Promesa = Esperar, Correr la funcion en segundo plano = async
             if(Object.keys(req.body).length === 0){ //Si encuentra cuerpo vacio //req.body = object
                 reject([400, {error: 'No body found'}])
