@@ -1,7 +1,10 @@
-const routes = require('express').Router()
-const UserController =require('../controllers/UserController')
+"use strict";
 
-const userController = new UserController();
+var routes = require('express').Router();
+
+var UserController = require('../controllers/UserController');
+
+var userController = new UserController();
 /*
 routes.post('/create', (req, res) => {
     userController.register(req)
@@ -21,6 +24,5 @@ routes.post('/login', (req, res )=> {
     })
     .catch(error => res.status(error[0]).send(error[1]))
 })*/
-
 
 module.exports = routes;
