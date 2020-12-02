@@ -2,6 +2,12 @@ const routes = require('express').Router()
 const UserController =require('../controllers/UserController')
 
 const userController = new UserController();
+
+
+routes.post('/token', (req, res)=> {
+    console.log(req.header)
+    console.log(req.headers)
+})
 /*
 routes.post('/create', (req, res) => {
     userController.register(req)

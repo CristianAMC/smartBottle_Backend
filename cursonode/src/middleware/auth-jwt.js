@@ -10,6 +10,7 @@ router.use((req, res, next ) => {
             if (err) {
                 return res.status(401).send({error: 'Invalid token'});
             }else{
+                req.decoded = decoded;
                 next()
             }
         })
