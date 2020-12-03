@@ -1,4 +1,4 @@
-import mooongose from 'mongoose'
+const  mooongose = require('mongoose')
 const schema = mooongose.Schema ;
 const measurementSchema = new schema({
     id_botilito : {
@@ -17,4 +17,4 @@ const measurementSchema = new schema({
 })
 const measurementModel = mooongose.model('measurements', measurementSchema);
 
-export default measurementModel;
+module.exports = measurementModel;

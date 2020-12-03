@@ -5,21 +5,25 @@ const app  = express();
 const server = require('http').Server(app)
 const socket = require('./socket')
 const bodyParser = require('body-parser')
-const db  = require('./database/db')
+const morgan = require('morgan')
 
+
+const db  = require('./database/db')
 const userRoutes = require('./routes/UserRoutes') 
 const authRoutes = require('./auth/AuthRoutes')
+const measureRoutes = require('./routes/MeasureRoute')
+
 
 app.use(cors({
     exposedHeaders: 'Authorization'
 }))
-
+app.use(morgan())
 app.set('PORT', 4000); //Guarda datos en memoria (LLAVE, VALOR)
 app.use(bodyParser.json())//Todas las peticiones se transforman en json
 app.use(bodyParser.urlencoded({extended: false}))//Recibir url complejas
 app.use('/api/auth', authRoutes)
 app.use('/api/user' , jwt_middleware, userRoutes) //UTILIZAR RUTA USERROUTES (API)
-
+app.use('/api/measure',  measureRoutes)
 
 
 server.listen(app.get('PORT'), ()=> { //Nos "devuelve" un servidor en la constante server, Crear server
